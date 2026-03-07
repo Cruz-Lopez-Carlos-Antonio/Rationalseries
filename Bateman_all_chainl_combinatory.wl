@@ -1,33 +1,20 @@
 (* ::Package:: *)
 
-(* ============================================================
-   OCS (Bateman) — FUERZA BRUTA (composiciones) — GENERALIZADO
-   + FORMATO PYTHON/SciPy + EXPORTS COMPLETOS
-   ------------------------------------------------------------
-   Basado en tu archivo Bateman_fuerza_bruta_final.wl:
-   - Mantiene la misma lógica (preSol + chi memo + DenomFactor)
-   - Mantiene tu formateador (RoundToSig/pySci/FormatPython16)
-   - Generaliza para calcular TODA la cadena: X1(t)..XN(t)
-   - Exporta:
-       (1) Results_Bateman_Brute_FullChain_16sig.txt  (Time, X1..XN)
-       (2) Results_Bateman_Brute_XN_16sig.txt         (Time, Value= XN)
-   ============================================================ *)
-
 (* -------- Precision settings -------- *)
-$OCSWorkingPrecision = 32;   (* precisión interna de cálculo *)
-$OCSPrintSigDigits   = 16;   (* cifras significativas de reporte *)
+$OCSWorkingPrecision = 32;   (* Internal Precision *)
+$OCSPrintSigDigits   = 16;   (* Significative digits *)
 $MaxExtraPrecision   = 200;
 
 toWP[x_] := SetPrecision[x, $OCSWorkingPrecision];
 
 (* ============================================================
-   Helper: si por algo llega {v,v} o lista, tomamos el primero
+   Helper
    ============================================================ *)
 ClearAll[toScalar];
 toScalar[x_] := If[ListQ[x] && Length[x] >= 1, x[[1]], x];
 
 (* ============================================================
-   1) Composiciones débiles / soluciones diofánticas (fuerza bruta)
+   1) Combinatorial Diophantie Equations
    ============================================================ *)
 
 ClearAll[WeakCompositions, partitionsRestricted, PrecomputeCompositions];
@@ -54,7 +41,7 @@ PrecomputeCompositions[maxMu_Integer?NonNegative, len_Integer?NonNegative] := Mo
 ];
 
 (* ============================================================
-   2) Denominador por i: Π_{j≠i} 1/( (λ_j - λ_i)^(mu_j+1) )
+   2)  i: Π_{j≠i} 1/( (λ_j - λ_i)^(mu_j+1) )
    ============================================================ *)
 
 ClearAll[DenomFactor];
@@ -70,8 +57,8 @@ DenomFactor[i_Integer, Mu_List, Lambd_List] := Module[
 ];
 
 (* ============================================================
-   3) OPTIMIZACIÓN PRINCIPAL: OCSPrepare
-      Devuelve f(t) para el "último" nuclido del sub-sistema dado por DC
+   3) OCSPrepare
+      Returns f(t) for the last nuclide given in DC
    ============================================================ *)
 
 ClearAll[OCSPrepare];
@@ -126,7 +113,7 @@ OCSPrepare[X0_, DC_List] := Module[
 ];
 
 (* ============================================================
-   4) Reporte: redondeo + formato Python/SciPy
+   4)Format Python/SciPy
    ============================================================ *)
 
 ClearAll[RoundToSig, pySci, FormatPython16];
@@ -138,7 +125,7 @@ RoundToSig[x_?NumericQ, n_Integer] := Module[{m, e},
   ]
 ];
 
-(* pySci: SIEMPRE notación científica estilo Python: 1.xxxe+NN *)
+(* pySci: Scientific Notation: 1.xxxe+NN *)
 pySci[x_List, sig_Integer : $OCSPrintSigDigits] := pySci[toScalar[x], sig];
 
 pySci[x_?NumericQ, sig_Integer : $OCSPrintSigDigits] := Module[
@@ -166,14 +153,14 @@ pySci[x_?NumericQ, sig_Integer : $OCSPrintSigDigits] := Module[
 FormatPython16[x_] := pySci[RoundToSig[toScalar[x], $OCSPrintSigDigits], $OCSPrintSigDigits];
 
 (* ============================================================
-   5) Generalización a TODA la cadena
+   5)Generalized all the chain 
    ============================================================ *)
 
 ClearAll[ratesFromHalfLives, BuildChainFunctionsBrute, ExportFullChainBrute];
 
 ratesFromHalfLives[halfLives_List] := (toWP[Log[2]]/toWP[#]) & /@ halfLives;
 
-(* Devuelve lista de funciones {X1(t),...,XN(t)} *)
+(* Returns the list of cuntions {X1(t),...,XN(t)} *)
 BuildChainFunctionsBrute[HalfLives_List, InitialCondition_] := Module[
   {N = Length[HalfLives], DC, funcs},
   funcs = Table[
@@ -184,7 +171,7 @@ BuildChainFunctionsBrute[HalfLives_List, InitialCondition_] := Module[
   funcs
 ];
 
-(* Exporta tabla completa: Time, X1..XN *)
+(* Export the table Time, X1..XN *)
 ExportFullChainBrute[HalfLives_List, InitialCondition_, TimeVector_List, file_String] := Module[
   {funcs, Nn, header, rows, lines},
 
@@ -208,7 +195,7 @@ ExportFullChainBrute[HalfLives_List, InitialCondition_, TimeVector_List, file_St
 ];
 
 (* ============================================================
-   6) Driver (se ejecuta al hacer Get["...wl"])
+   6) Driver ["...wl"])
    ============================================================ *)
 
 HalfLives = {2, 2, 3, 3, 3, 4, 4, 4, 4};
@@ -229,7 +216,7 @@ Module[{DC, fOCS, results, tablaFinal, lines},
   fOCS = OCSPrepare[InitialCondition, DC];
   results = fOCS /@ TimeVector;
 
-  Print["Resultados (Re) estilo Python/SciPy (16 sig figs):"];
+  Print["Results (Re) Python/SciPy (16 sig figs):"];
   Scan[Print[FormatPython16[#]] &, results];
 
   tablaFinal = Transpose[{TimeVector, FormatPython16 /@ (toScalar /@ results)}];
