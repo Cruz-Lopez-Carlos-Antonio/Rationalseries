@@ -8,8 +8,6 @@ $$\sum_{k=0}^\infty \frac{P(k)\, z^k}{(k+a_1)^{m_1+1} (k+a_2)^{m_2+1} \cdots (k+
 
 where $P(k)$ is a polynomial, $z \in \mathbb{C}$ with $|z| \le 1$, $a_i \in \mathbb{C} \setminus \{0, -1, \ldots\}$ are the shift parameters, and $m_i \in \mathbb{Z}_{\ge 0}$ represent their respective multiplicities.
 
-The framework extends beyond the explicit evaluation of these series involving rational terms; it constitutes a computable implementation of confluent divided differences (divided differences with repeated arguments).
-
 The framework extends beyond the explicit evaluation of these series involving rational terms; it constitutes a computable implementation of confluent divided differences (divided differences with repeated arguments). 
 The present set of codes accompany the manuscript *On the Generalized Summation of Series with Rational Coefficients*, recently submitted to the *Computer Physics Communications* journal. Unless otherwise noted, all scripts are released under the **MIT License**.
 
