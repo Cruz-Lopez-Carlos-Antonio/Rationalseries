@@ -2,14 +2,15 @@
 
 ## Overview of the Repository
 
-The present repository contains the **Python 3** and **Wolfram Mathematica** codes associated with the evaluation of the analytical closed-relationship developed in our research for rational series of the exact form:
+The present repository contains the **Python 3** and **Wolfram Mathematica** codes associated with the evaluation of the analytical closed-relationship for rational series of the exact form:
 
 $$\sum_{k=0}^\infty \frac{P(k)\, z^k}{(k+a_1)^{m_1+1} (k+a_2)^{m_2+1} \cdots (k+a_n)^{m_n+1}}.$$
 
-The framework extends beyond the explicit evaluation of these series involving rational terms; it constitutes a computable implementation of confluent divided differences (divided differences with repeated arguments). The set of codes accompany the manuscript *On the Generalized Summation of Series with Rational Coefficients*, recently submitted to the *Computer Physics Communications* journal. Unless otherwise noted, all scripts are released under the **MIT License**.
+The framework extends beyond the explicit evaluation of these series involving rational terms; it constitutes a computable implementation of confluent divided differences (divided differences with repeated arguments). 
+The present set of codes accompany the manuscript *On the Generalized Summation of Series with Rational Coefficients*, recently submitted to the *Computer Physics Communications* journal. Unless otherwise noted, all scripts are released under the **MIT License**.
 
 ## Physical Application
-A direct and strong physical application emerges by adapting this mathematical structure to solve the generalized Bateman equations. By mapping the algebraic-combinatorial structure of the rational series resolution to the general solution of the Bateman equations, the algorithm can directly and systematically compute complex decay chain and transmutation models, including cases with repeated decay constants.
+A direct and strong physical application emerges by adapting this mathematical structure to solve the generalized Bateman equations. By mapping the algebraic-combinatorial structure of the rational series resolution to the general solution of the Bateman equations, the algorithm can directly and systematically compute complex decay chain and transmutation models, including cases with repeated decay constants. The present repository also contains the data related to the verification, validation and running-time analysis of this physical application. 
 
 ## Theoretical Framework
 
