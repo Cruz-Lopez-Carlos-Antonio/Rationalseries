@@ -43,10 +43,10 @@ These scripts complement the numerical framework by providing:
 ## Authors and Financial Support:
 
 **Authors:**
-* Carlos-Antonio Cruz-López
-* Marc Jornet
-* Gilberto Espinosa-Paredes
-* Juan-Luis François
+* Carlos-Antonio Cruz-López (Universidad Autónoma Metropolitana)
+* Marc Jornet (Escuela Superior de Ingeniería y Tecnología, Universidad Internacional de La Rioja)
+* Gilberto Espinosa-Paredes (Universidad Autónoma Metropolitana)
+* Juan-Luis François (Universidad Nacional Autónoma de México) 
 
 **Financial Support**
 The authors Carlos Antonio Cruz López and Gilberto Espinosa Paredes gratefully acknowledge the financial support received from the Secretaría de Ciencia, Humanidades, Tecnología e Innovación (SECIHTI, formerly known as CONAHCYT), through the program *Estancias Posdoctorales por México, 2022*, under the project entitled: *Desarrollo de modelos fenomenológicos energéticos de orden fraccional, para la optimización y simulación en reactores nucleares de potencia*, as well as the financial support from the Basic Science and Frontier Project 2023-2024, with the reference CBF-2023-2024-2023, also belonging to SECIHTI-CONAHCYT. 
