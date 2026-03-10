@@ -1,5 +1,6 @@
 # Rational Series Resolutions Applied to Bateman Equations
 
+## Overview of the Repository
 
 The present repository contains the **Python 3** and **Wolfram Mathematica** codes associated with the evaluation of the analytical closed-relationship developed in our research for rational series of the exact form:
 
@@ -13,15 +14,8 @@ The framework extends beyond the explicit evaluation of these series involving r
 * Gilberto Espinosa-Paredes
 * Juan-Luis François
 
----
-
-## Overview of the Repository
-
-This repository provides the computational tools necessary to evaluate the analytical closed-relationship developed in our research. The framework extends beyond the explicit evaluation of series involving rational terms; it constitutes a computable implementation of confluent divided differences (divided differences with repeated arguments). 
-
+## Physical Application
 A direct and strong physical application emerges by adapting this mathematical structure to solve the generalized Bateman equations. By mapping the algebraic-combinatorial structure of the rational series resolution to the general solution of the Bateman equations, the algorithm can directly and systematically compute complex decay chain and transmutation models, including cases with repeated decay constants.
-
----
 
 ## Theoretical Framework
 
