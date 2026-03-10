@@ -2,7 +2,7 @@
 
 The present repository contains the **Python 3** and **Wolfram Mathematica** codes associated with the development of a new analytical framework for the resolution of rational series, with a direct application to the Bateman equations for decay chains and transmutation.
 
-These codes accompany the manuscript *[On the Generalized Summation of Series with Rational Coefficients]*, recently submitted to the *Computer Physics Communications* journal. Unless otherwise noted, all scripts are released under the **MIT License**.
+These codes accompany the manuscript *On the Generalized Summation of Series with Rational Coefficients*, recently submitted to the *Computer Physics Communications* journal. Unless otherwise noted, all scripts are released under the **MIT License**.
 
 **Authors:**
 * Carlos-Antonio Cruz-López
