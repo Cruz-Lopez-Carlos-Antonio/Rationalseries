@@ -8,12 +8,6 @@ $$\sum_{k=0}^\infty \frac{P(k)\, z^k}{(k+a_1)^{m_1+1} (k+a_2)^{m_2+1} \cdots (k+
 
 The framework extends beyond the explicit evaluation of these series involving rational terms; it constitutes a computable implementation of confluent divided differences (divided differences with repeated arguments). The set of codes accompany the manuscript *On the Generalized Summation of Series with Rational Coefficients*, recently submitted to the *Computer Physics Communications* journal. Unless otherwise noted, all scripts are released under the **MIT License**.
 
-**Authors:**
-* Carlos-Antonio Cruz-López
-* Marc Jornet
-* Gilberto Espinosa-Paredes
-* Juan-Luis François
-
 ## Physical Application
 A direct and strong physical application emerges by adapting this mathematical structure to solve the generalized Bateman equations. By mapping the algebraic-combinatorial structure of the rational series resolution to the general solution of the Bateman equations, the algorithm can directly and systematically compute complex decay chain and transmutation models, including cases with repeated decay constants.
 
@@ -45,8 +39,15 @@ These scripts complement the numerical framework by providing:
 * **Symbolic Computation:** Exact algebraic verification of the rational series resolutions, the polynomial coefficients, and the general structure of the Bateman decay chains.
 * **PSLQ Algorithm Implementation:** Application of the high-precision PSLQ integer relation algorithm to rigorously validate the analytical structure, detect precise integer relations among the coefficients, and confirm the exactness of the developed framework.
 * 
-## Acknowledgments
+## Authors and Financial Support:
 
+**Authors:**
+* Carlos-Antonio Cruz-López
+* Marc Jornet
+* Gilberto Espinosa-Paredes
+* Juan-Luis François
+
+**Financial Support**
 The authors Carlos Antonio Cruz López and Gilberto Espinosa Paredes gratefully acknowledge the financial support received from the Secretaría de Ciencia, Humanidades, Tecnología e Innovación (SECIHTI, formerly known as CONAHCYT), through the program *Estancias Posdoctorales por México, 2022*, under the project entitled: *Desarrollo de modelos fenomenológicos energéticos de orden fraccional, para la optimización y simulación en reactores nucleares de potencia*, as well as the financial support from the Basic Science and Frontier Project 2023-2024, with the reference CBF-2023-2024-2023, also belonging to SECIHTI-CONAHCYT. 
 
 ---
