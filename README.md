@@ -1,6 +1,6 @@
 # Rational Series Resolutions Applied to Bateman Equations
 
-The present repository contains the Python 3 and Wolfram Mathematica codes associated with the development of a new analytical framework for the resolution of rational series, with a direct application to the Bateman equations for decay chains and transmutation.
+The present repository contains the **Python 3** and **Wolfram Mathematica** codes associated with the development of a new analytical framework for the resolution of rational series, with a direct application to the Bateman equations for decay chains and transmutation.
 
 These codes accompany the manuscript *[On the Generalized Summation of Series with Rational Coefficients]*, recently submitted to the *Computer Physics Communications* journal. Unless otherwise noted, all scripts are released under the **MIT License**.
 
@@ -14,7 +14,7 @@ These codes accompany the manuscript *[On the Generalized Summation of Series wi
 
 ## Overview of the Repository
 
-This repository provides the computational tools necessary to evaluate the analytical solutions derived in our research. The framework extends beyond the explicit evaluation of series involving rational terms; it constitutes a computable implementation of confluent divided differences (divided differences with repeated arguments). 
+This repository provides the computational tools necessary to evaluate the analytical closed-relationship developed in our research. The framework extends beyond the explicit evaluation of series involving rational terms; it constitutes a computable implementation of confluent divided differences (divided differences with repeated arguments). 
 
 A direct and strong physical application emerges by adapting this mathematical structure to solve the generalized Bateman equations. By mapping the algebraic-combinatorial structure of the rational series resolution to the general solution of the Bateman equations, the algorithm can directly and systematically compute complex decay chain and transmutation models, including cases with repeated decay constants.
 
@@ -37,8 +37,9 @@ This structural corollary implies that the algorithm developed for evaluating th
 ## Computational Implementation
 
 The numerical evaluation of these analytical solutions requires high-precision computations. The scripts are implemented in **Python 3**, utilizing:
-* `mpmath` for arbitrary-precision floating-point arithmetic.
-* `sympy` for symbolic mathematics.
+* `mpmath` for arbitrary-precision floating-point arithmetic,
+* `sympy` for symbolic mathematics,
+  
 
 ---
 
