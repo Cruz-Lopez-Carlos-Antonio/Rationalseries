@@ -1,7 +1,53 @@
-# Rationalseries
-The following Python code is an advanced (but more demanding) version of the code that was developed in the article "On the Generalized Summation of Series with Rational Coefficients", recently submited to Computer Physics Communications.
+# Rational Series Resolutions Applied to Bateman Equations
 
+The present repository contains the Python 3 codes associated with the development of a new analytical framework for the resolution of rational series, with a direct application to the Bateman equations for decay chains and transmutation.
 
-<p align="center">
-  <img src="https://latex.codecogs.com/svg.image?\sum_{k=0}^{\infty}&space;\frac{k^5&plus;k^4&plus;k^3&plus;k^2&plus;k&plus;1}{(k&plus;1)^4(k&plus;2)^3(k&plus;3)^2}" alt="Ecuación">
-</p>
+These codes accompany the manuscript *[Insertar título del artículo aquí]*, recently submitted to the *Computer Physics Communications* journal. Unless otherwise noted, all scripts are released under the **MIT License**.
+
+**Authors:**
+* Carlos-Antonio Cruz-López
+* Gilberto Espinosa-Paredes
+* Claudia Andrea Vidales-Basurto
+* Guillermo Sánchez Lozano
+
+---
+
+## Overview of the Repository
+
+This repository provides the computational tools necessary to evaluate the analytical solutions derived in our research. The framework extends beyond the explicit evaluation of series involving rational terms; it constitutes a computable implementation of confluent divided differences (divided differences with repeated arguments). 
+
+A direct and strong physical application emerges by adapting this mathematical structure to solve the generalized Bateman equations. By mapping the algebraic-combinatorial structure of the rational series resolution to the general solution of the Bateman equations, the algorithm can directly and systematically compute complex decay chain and transmutation models, including cases with repeated decay constants.
+
+---
+
+## Theoretical Framework
+
+The core mathematical foundation of this computational implementation is established by **Theorem 9** of our manuscript, which defines the rational series resolution:
+
+$$\sum_{k=0}^\infty \frac{P(k)\, z^k}{(k+a_1)^{m_1+1} (k+a_2)^{m_2+1} \cdots (k+a_n)^{m_n+1}} = \sum_{i=1}^{n} \frac{1}{\prod_{\substack{j=1 \\ j \ne i}}^{n} (a_j - a_i)^{m_j + 1}} \sum_{k=0}^{m_i} \frac{(-1)^kF^{(k)}(z, a_i)}{k!} \, \Omega_{i,\, m_i - k}$$
+
+Under specific adaptations, this theoretical development directly translates to the physical problem of nuclear decay chains. The general solution of the Bateman equations with repeated decay constants shares the exact same algebraic-combinatorial structure, as shown in **Equation (NewC_01)**:
+
+$$\frac{X_N(t)\lambda_N}{X_1(0)\prod_{k=1}^{n}\lambda_k^{\mu_k+1}} = \sum_{i=1}^{n} \frac{1}{\prod_{\substack{j=1 \\ j \neq i}}^{n} (\lambda_j - \lambda_i)^{\mu_j}} \sum_{l=0}^{\mu_i} \frac{(-1)^l G^{(l)}(\lambda_i,t)}{l!}\,\chi_{i,\mu_i-l}$$
+
+This structural corollary implies that the algorithm developed for evaluating the rational series (Eq. 60) is directly adapted to compute the general Bateman solution.
+
+---
+
+## Computational Implementation
+
+The numerical evaluation of these analytical solutions requires high-precision computations. The scripts are implemented in **Python 3**, utilizing:
+* `mpmath` for arbitrary-precision floating-point arithmetic.
+* `sympy` for symbolic mathematics.
+
+---
+
+## Acknowledgments
+
+The authors Carlos Antonio Cruz López and Gilberto Espinosa Paredes gratefully acknowledge the financial support received from the Secretaría de Ciencia, Humanidades, Tecnología e Innovación (SECIHTI, formerly known as CONAHCYT), through the program *Estancias Posdoctorales por México, 2022*, under the project entitled: *Desarrollo de modelos fenomenológicos energéticos de orden fraccional, para la optimización y simulación en reactores nucleares de potencia*, as well as the financial support from the Basic Science and Frontier Project 2023-2024, with the reference CBF-2023-2024-2023, also belonging to SECIHTI-CONAHCYT. 
+
+---
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details. You are free to use, modify, and distribute this software for academic and commercial purposes, provided that appropriate credit is given to the original authors.
