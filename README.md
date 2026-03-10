@@ -4,7 +4,11 @@
 
 The present repository contains the **Python 3** and **Wolfram Mathematica** codes associated with the evaluation of the analytical closed-relationship for rational series of the exact form:
 
-$$\sum_{k=0}^\infty \frac{P(k)\, z^k}{(k+a_1)^{m_1+1} (k+a_2)^{m_2+1} \cdots (k+a_n)^{m_n+1}}.$$
+$$\sum_{k=0}^\infty \frac{P(k)\, z^k}{(k+a_1)^{m_1+1} (k+a_2)^{m_2+1} \cdots (k+a_n)^{m_n+1}},$$
+
+where $P(k)$ is a polynomial, $z \in \mathbb{C}$ with $|z| \le 1$, $a_i \in \mathbb{C} \setminus \{0, -1, \ldots\}$ are the shift parameters, and $m_i \in \mathbb{Z}_{\ge 0}$ represent their respective multiplicities.
+
+The framework extends beyond the explicit evaluation of these series involving rational terms; it constitutes a computable implementation of confluent divided differences (divided differences with repeated arguments).
 
 The framework extends beyond the explicit evaluation of these series involving rational terms; it constitutes a computable implementation of confluent divided differences (divided differences with repeated arguments). 
 The present set of codes accompany the manuscript *On the Generalized Summation of Series with Rational Coefficients*, recently submitted to the *Computer Physics Communications* journal. Unless otherwise noted, all scripts are released under the **MIT License**.
@@ -12,27 +16,32 @@ The present set of codes accompany the manuscript *On the Generalized Summation 
 ## Physical Application
 A direct and strong physical application emerges by adapting this mathematical structure to solve the generalized Bateman equations. By mapping the algebraic-combinatorial structure of the rational series resolution to the general solution of the Bateman equations, the algorithm can directly and systematically compute complex decay chain and transmutation models, including cases with repeated decay constants. The present repository also contains the data related to the verification, validation and running-time analysis of this physical application. 
 
+
 ## Theoretical Framework
 
 The core mathematical foundation of this computational implementation is established by **Theorem 9** of our manuscript, which defines the rational series resolution:
 
 $$\sum_{k=0}^\infty \frac{P(k)\, z^k}{(k+a_1)^{m_1+1} (k+a_2)^{m_2+1} \cdots (k+a_n)^{m_n+1}} = \sum_{i=1}^{n} \frac{1}{\prod_{\substack{j=1 \\ j \ne i}}^{n} (a_j - a_i)^{m_j + 1}} \sum_{k=0}^{m_i} \frac{(-1)^kF^{(k)}(z, a_i)}{k!} \, \Omega_{i,\, m_i - k}$$
 
+In this expression, $\Omega_{i,\, m_i - k}$ encapsulates the underlying combinatorial structure associated with the system's multiplicities, and $F^{(k)}(z, a_i)$ is a function derived from the polynomial evaluations and the variable $z$.
+
 Under specific adaptations, this theoretical development directly translates to the physical problem of nuclear decay chains. The general solution of the Bateman equations with repeated decay constants shares the exact same algebraic-combinatorial structure, as shown in **Equation (NewC_01)**:
 
 $$\frac{X_N(t)\lambda_N}{X_1(0)\prod_{k=1}^{n}\lambda_k^{\mu_k+1}} = \sum_{i=1}^{n} \frac{1}{\prod_{\substack{j=1 \\ j \neq i}}^{n} (\lambda_j - \lambda_i)^{\mu_j}} \sum_{l=0}^{\mu_i} \frac{(-1)^l G^{(l)}(\lambda_i,t)}{l!}\,\chi_{i,\mu_i-l}$$
 
-This structural corollary implies that the algorithm developed for evaluating the rational series (Eq. 60) is directly adapted to compute the general Bateman solution.
+In this physical context, $X_N(t)$ represents the population or inventory of the $N$-th nuclide at time $t$, $X_1(0)$ is the initial concentration of the parent nuclide, and $\lambda_i$ are the decay constants with their respective multiplicities $\mu_i$. Additionally, $G^{(l)}(\lambda_i,t) = (-t)^l e^{-\lambda_i t}$ relates to the time-dependent derivatives of the exponential decay, and $\chi_{i,\mu_i-l}$ serves as the explicit physical counterpart of the combinatorial term $\Omega$.
+
+This structural corollary implies that the algorithm developed for evaluating the rational series is directly adapted to compute the general Bateman solution.
 
 ---
 
-# Computational Implementation
+## Computational Implementation
 
 The numerical evaluation of these analytical solutions requires high-precision computations. The scripts are implemented in **Python 3**, utilizing:
 * `mpmath` for arbitrary-precision floating-point arithmetic,
 * `sympy` for symbolic mathematics,
   
-# Symbolic Verification and PSLQ Analysis
+## Symbolic Verification and PSLQ Analysis
 
 To ensure the absolute theoretical rigidity and exactness of the proposed analytical solutions, this repository also includes scripts developed in **Wolfram Mathematica**. 
 
