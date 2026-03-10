@@ -34,13 +34,21 @@ This structural corollary implies that the algorithm developed for evaluating th
 
 ---
 
-## Computational Implementation
+# Computational Implementation
 
 The numerical evaluation of these analytical solutions requires high-precision computations. The scripts are implemented in **Python 3**, utilizing:
 * `mpmath` for arbitrary-precision floating-point arithmetic,
 * `sympy` for symbolic mathematics,
   
+# Symbolic Verification and PSLQ Analysis
 
+To ensure the absolute theoretical rigidity and exactness of the proposed analytical solutions, this repository also includes scripts developed in **Wolfram Mathematica**. 
+
+These scripts complement the numerical framework by providing:
+* **Symbolic Computation:** Exact algebraic verification of the rational series resolutions, the polynomial coefficients, and the general structure of the Bateman decay chains.
+* **PSLQ Algorithm Implementation:** Application of the high-precision PSLQ integer relation algorithm to rigorously validate the analytical structure, detect precise integer relations among the coefficients, and confirm the exactness of the developed framework.
+
+This dual approach—combining Python for high-precision numerical evaluation and Mathematica for exact symbolic and PSLQ verification—guarantees the robustness and absolute reliability of the physical and mathematical models presented in the manuscript.
 ---
 
 ## Acknowledgments
